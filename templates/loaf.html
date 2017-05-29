@@ -3,40 +3,48 @@
     <head>
         <title>Loaf 0 - bread.porn</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='loaf.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/pt_sans.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ubuntu.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/smooth-scroll.min.js') }}"></script>
     </head>
     <body>
         <div class="loaf-image">
             <div class="logo">
                 bread<br>porn
             </div>
+            
+            <a data-scroll href="#loaf-description">
+                <div class="loaf-image_arrow-down"></div>
+            </a>
         </div>
-        <div class="loaf-description content-container">
-            <h1 class="loaf-title">
-                <img class="loaf-title_icon" src="{{ url_for('static', filename='icons/baguettes.png') }}">
-                Traditional Baguette
+        <div id="loaf-description" class="loaf-description">
+            <div class="content-container">
+                <h1 class="loaf-name u-text-center">
+                    <img class="loaf-name_icon" src="{{ url_for('static', filename='icons/baguettes.svg') }}">
+                    Traditional Baguette
+                </h1>
+                <h2 class="loaf-baker u-text-center">
+                    baked by <img class="loaf-baker_icon" src="{{ url_for('static', filename='icons/chef.svg') }}">Mathieu
+                </h2>
 
-                <span class="loaf-title_baker">
-                    by <img class="loaf-title_baker_icon" src="{{ url_for('static', filename='icons/chef-small.png') }}">Mathieu
-                </span>
-            </h1>
-
-            <div class="content-section">
-                <div class="content-section_icon">
-                    <img src="{{ url_for('static', filename='icons/wheat-flour.png') }}">
+                <div class="content-section">
+                    <div class="content-section_icon">
+                        <img src="{{ url_for('static', filename='icons/wheat-flour.png') }}">
+                    </div>
+                    <div class="content-section_description">
+                    </div>
                 </div>
-                <div class="content-section_description">
+
+                <div class="content-section">
+                    <div class="content-section_icon">
+                        <img src="{{ url_for('static', filename='icons/clockwise-rotation.png') }}">
+                    </div>
+                    <div class="content-section_description">
+                    </div>
                 </div>
             </div>
-
-            <div class="content-section">
-                <div class="content-section_icon">
-                    <img src="{{ url_for('static', filename='icons/clockwise-rotation.png') }}">
-                </div>
-                <div class="content-section_description">
-                </div>
-            </div>
         </div>
+
         <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <script>smoothScroll.init();</script>
     </body>
 </html>
