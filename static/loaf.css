@@ -5,6 +5,10 @@ body, html {
     letter-spacing: 1px;
 }
 
+ul {
+	list-style-type: none;
+}
+
 .logo {
     width: 100px;
     padding: 10px;
@@ -57,6 +61,7 @@ body, html {
 .loaf-name {
     position: relative;
     margin: 10px 0;
+	padding-top: 25px;
 
     font-size: 38px;
     font-weight: 400;
@@ -108,7 +113,6 @@ body, html {
 }
 
 .ingredient-list {
-	list-style-type: none;
 	padding: 10px 0;
 }
 
@@ -174,11 +178,18 @@ body, html {
 	background-image: url(/static/icons/glass.svg);
 }
 
-.cups-1 {
+.cups-1,
+.tsp-1 {
 	width: 20px;
 }
 
-.cups-3 {
+.cups-2,
+.tsp-2 {
+	width: 40px;
+}
+
+.cups-3,
+.tsp-3 {
 	width: 60px;
 }
 
@@ -186,6 +197,75 @@ body, html {
 	background-image: url(/static/icons/spoon.svg);
 }
 
-.tsp-1 {
-	width: 20px;
+.timeline {
+	padding: 10px 0;
+}
+
+.timeline-action {
+	display: flex;
+	min-height: 120px;
+	margin-bottom: 5px;
+}
+
+.timeline-action-details {
+	flex: none;
+	width: 110px;
+	padding-top: 30px;
+}
+
+.timeline-action-detail {
+	display: flex;
+	align-items: center;
+	color: #666;
+	font-size: 14px;
+}
+
+.timeline-action-description {
+	position: relative;
+	padding: 15px 0 15px 10px;
+	border-left: 5px solid #ccc;
+}
+
+.timeline-action--cold .timeline-action-description {
+	border-color: #4991E3;
+}
+
+.timeline-action--hot .timeline-action-description {
+	border-color: #FA7A5A;
+}
+
+.timeline-action-description_name {
+	position: absolute;
+	top: -4px;
+	margin: 0;
+}
+
+.timeline-action-description_notes {
+	color: #999;
+}
+
+.i-clock,
+.i-thermometer {
+	flex: none;
+	width: 30px;
+	height: 24px;
+	background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: center left;
+}
+
+.i-clock {
+	background-image: url(/static/icons/clock.svg);
+}
+
+.i-thermometer {
+	background-image: url(/static/icons/thermometer.svg);
+}
+
+.timeline-action--hot .i-thermometer {
+	background-image: url(/static/icons/thermometer-hot.svg);
+}
+
+.timeline-action--cold .i-thermometer {
+	background-image: url(/static/icons/thermometer-cold.svg);
 }
