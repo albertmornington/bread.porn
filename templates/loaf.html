@@ -5,6 +5,9 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='loaf.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ubuntu.css') }}">
         <script type="text/javascript" src="{{ url_for('static', filename='js/smooth-scroll.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/underscore.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/util.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/init_anchor_links.js') }}"></script>
     </head>
     <body>
         <div class="loaf-image">
@@ -12,7 +15,7 @@
                 bread<br>porn
             </div>
             
-            <a data-scroll href="#loaf-description">
+            <a href="#loaf-description" class="anchor-link">
                 <div class="loaf-image_arrow-down"></div>
             </a>
         </div>
@@ -20,25 +23,81 @@
             <div class="content-container">
                 <h1 class="loaf-name u-text-center">
                     <img class="loaf-name_icon" src="{{ url_for('static', filename='icons/baguettes.svg') }}">
-                    Traditional Baguette
+                    Walnut Baguette
                 </h1>
                 <h2 class="loaf-baker u-text-center">
                     baked by <img class="loaf-baker_icon" src="{{ url_for('static', filename='icons/chef.svg') }}">Mathieu
                 </h2>
 
                 <div class="content-section">
-                    <div class="content-section_icon">
-                        <img src="{{ url_for('static', filename='icons/wheat-flour.png') }}">
+                    <div class="content-section_icon-container">
+                        <img class="content-section_icon" src="{{ url_for('static', filename='icons/wheat-flour.svg') }}">
                     </div>
-                    <div class="content-section_description">
+                    <div class="content-section_description ingredient-section">
+						<h3 class="content-section_description_title">Ingredients</h3>
+						<ul class="ingredient-list">
+							<li class="ingredient">
+								<div class="ingredient_icon ingredient_icon--flour"></div>
+								<div class="ingredient_name">
+									Strong white flour
+								</div>
+								<div class="ingredient_amount">
+									<div class="ingredient_amount_text">3 cups</div>
+									<div class="ingredient_amount_pictogram cups cups-3"></div>
+								</div>
+							</li>
+							<li class="ingredient">
+								<div class="ingredient_icon ingredient_icon--water"></div>
+								<div class="ingredient_name">
+									Water
+								</div>
+								<div class="ingredient_amount">
+									<div class="ingredient_amount_text">1 cup</div>
+									<div class="ingredient_amount_pictogram cups cups-1"></div>
+								</div>
+							</li>
+							<li class="ingredient">
+								<div class="ingredient_icon ingredient_icon--yeast"></div>
+								<div class="ingredient_name">
+									Yeast
+								</div>
+								<div class="ingredient_amount">
+									<div class="ingredient_amount_text">&frac14; cup</div>
+									<div class="ingredient_amount_pictogram cups cups-1"></div>
+								</div>
+							</li>
+							<li class="ingredient">
+								<div class="ingredient_icon ingredient_icon--nuts"></div>
+								<div class="ingredient_name">
+									Walnuts
+								</div>
+								<div class="ingredient_amount">
+									<div class="ingredient_amount_text">1 cup</div>
+									<div class="ingredient_amount_pictogram cups cups-1"></div>
+								</div>
+							</li>
+							<li class="ingredient">
+								<div class="ingredient_icon ingredient_icon--salt"></div>
+								<div class="ingredient_name">
+									Salt
+								</div>
+								<div class="ingredient_amount">
+									<div class="ingredient_amount_text">1 tsp</div>
+									<div class="ingredient_amount_pictogram tsp tsp-1"></div>
+								</div>
+							</li>
+						</ul>
                     </div>
                 </div>
 
                 <div class="content-section">
-                    <div class="content-section_icon">
-                        <img src="{{ url_for('static', filename='icons/clockwise-rotation.png') }}">
+                    <div class="content-section_icon-container">
+                        <img class="content-section_icon" src="{{ url_for('static', filename='icons/time.svg') }}">
                     </div>
-                    <div class="content-section_description">
+                    <div class="content-section_description timeline-section">
+						<h3 class="content-section_description_title">Timeline</h3>
+						<div class="timeline-section_graph">
+						</div>
                     </div>
                 </div>
             </div>
