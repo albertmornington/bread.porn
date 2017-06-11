@@ -8,18 +8,26 @@
         <script type="text/javascript" src="{{ url_for('static', filename='js/underscore.min.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/util.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/init_anchor_links.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/init_loaf_image_slideshow.js') }}"></script>
     </head>
     <body>
-        <div class="loaf-image">
+        <div class="loaf-images">
+            <div class="loaf-image" style="background-image: url({{ url_for('static', filename='images/loaf0_0.jpg') }});"></div>
+            <div class="loaf-image u-hidden" style="background-image: url({{ url_for('static', filename='images/loaf0_1.jpg') }});"></div>
+            <div class="loaf-image u-hidden" style="background-image: url({{ url_for('static', filename='images/loaf0_2.jpg') }});"></div>
+
             <div class="logo">
                 bread<br>porn
             </div>
+
+            <div class="loaf-image_arrow loaf-image_arrow-left"></div>
+            <div class="loaf-image_arrow loaf-image_arrow-right"></div>
             
+        </div>
+        <div class="loaf-description">
             <a href="#loaf-name" class="anchor-link">
                 <div class="loaf-image_arrow-down"></div>
             </a>
-        </div>
-        <div class="loaf-description">
             <div class="content-container">
                 <h1 id="loaf-name" class="loaf-name u-text-center">
                     <img class="loaf-name_icon" src="{{ url_for('static', filename='icons/baguettes.svg') }}">
@@ -28,6 +36,95 @@
                 <h2 class="loaf-baker u-text-center">
                     baked by <img class="loaf-baker_icon" src="{{ url_for('static', filename='icons/chef.svg') }}">Mathieu
                 </h2>
+
+                <div class="content-section">
+                    <div class="content-section_icon-container">
+                        <img class="content-section_icon" src="{{ url_for('static', filename='icons/dog.svg') }}">
+                    </div>
+                    <div class="content-section_description the-verdict-section">
+						<h3 class="content-section_description_title">The Verdict</h3>
+                        <div class="the-verdict-section_rating the-verdict-section_rating--4">
+                            <div class="the-verdict-section_rating_background"></div>
+                            <div class="the-verdict-section_rating_stars"></div>
+                        </div>
+                        <ul class="the-verdict-breakdown">
+                            <li class="breakdown-category breakdown-category--sweetness">
+                                <div class="breakdown-category_icon i-candy"></div>
+                                <div class="breakdown-category_name">
+                                    Sweetness
+                                </div>
+                                <div class="breakdown-category_slider">
+                                    <ul class="breakdown-category_slider_labels">
+                                        <li class="breakdown-category_slider_label">Bitter</li>
+                                        <li class="breakdown-category_slider_label">Hits the<br>sweet spot</li>
+                                        <li class="breakdown-category_slider_label">Cloying</li>
+                                    </ul>
+                                    <input type="range" min="0" max="4" steps="1" value="1">
+                                </div>
+                            </li>
+
+                            <li class="breakdown-category breakdown-category--sweetness">
+                                <div class="breakdown-category_icon i-lemon"></div>
+                                <div class="breakdown-category_name">
+                                    Sourness
+                                </div>
+                                <div class="breakdown-category_slider">
+                                    <ul class="breakdown-category_slider_labels">
+                                        <li class="breakdown-category_slider_label">Bland</li>
+                                        <li class="breakdown-category_slider_label">Perfect</li>
+                                        <li class="breakdown-category_slider_label">Too sour</li>
+                                    </ul>
+                                    <input type="range" min="0" max="4" steps="1" value="2">
+                                </div>
+                            </li>
+
+                            <li class="breakdown-category breakdown-category--crust">
+                                <div class="breakdown-category_icon i-rocks"></div>
+                                <div class="breakdown-category_name">
+                                    Crust
+                                </div>
+                                <div class="breakdown-category_slider">
+                                    <ul class="breakdown-category_slider_labels">
+                                        <li class="breakdown-category_slider_label">Soft</li>
+                                        <li class="breakdown-category_slider_label">Crunchy<br>goodness</li>
+                                        <li class="breakdown-category_slider_label">Too hard</li>
+                                    </ul>
+                                    <input type="range" min="0" max="4" steps="1" value="1">
+                                </div>
+                            </li>
+
+                            <li class="breakdown-category breakdown-category--texture">
+                                <div class="breakdown-category_icon i-honeycomb"></div>
+                                <div class="breakdown-category_name">
+                                    Texture
+                                </div>
+                                <div class="breakdown-category_slider">
+                                    <ul class="breakdown-category_slider_labels">
+                                        <li class="breakdown-category_slider_label">Too gauzy</li>
+                                        <li class="breakdown-category_slider_label">Spongy<br>perfection</li>
+                                        <li class="breakdown-category_slider_label">Too dense</li>
+                                    </ul>
+                                    <input type="range" min="0" max="4" steps="1" value="2">
+                                </div>
+                            </li>
+
+                            <li class="breakdown-category breakdown-category--toasting">
+                                <div class="breakdown-category_icon i-toaster"></div>
+                                <div class="breakdown-category_name">
+                                    Toasting
+                                </div>
+                                <div class="breakdown-category_slider">
+                                    <ul class="breakdown-category_slider_labels">
+                                        <li class="breakdown-category_slider_label">Uncooked</li>
+                                        <li class="breakdown-category_slider_label">Golden<br>perfection</li>
+                                        <li class="breakdown-category_slider_label">Overcooked</li>
+                                    </ul>
+                                    <input type="range" min="0" max="4" steps="1" value="2">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
                 <div class="content-section">
                     <div class="content-section_icon-container">

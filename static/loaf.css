@@ -7,9 +7,14 @@ body, html {
 
 ul {
 	list-style-type: none;
+	padding-left: 0;
 }
 
 .logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+
     width: 100px;
     padding: 10px;
     border: 5px solid #fff;
@@ -23,23 +28,89 @@ ul {
     text-align: center;
 }
 
-.loaf-image {
+.u-hidden {
+    display: none;
+}
+
+.loaf-images {
     position: relative;
     height: calc(100vh - 80px);
-    padding: 15px;
 
-    background-image: url(/static/images/loaf0_0.jpg);
+    overflow: hidden;
+}
+
+.loaf-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     box-shadow: inset 0 -2px 10px 0 rgba(50, 50, 50, 0.5);
+}
+
+.loaf-image_arrow {
+    position: absolute;
+    top: calc(50% - 100px);
+
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url(/static/icons/arrow_down_white.svg);
+    background-size: 25px;
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+}
+
+.loaf-images:hover .loaf-image_arrow-left {
+    left: -170px;
+    opacity: 0.5;
+}
+
+.loaf-images:hover .loaf-image_arrow-left:hover {
+    left: -130px;
+    opacity: 0.8;
+}
+
+.loaf-images:hover .loaf-image_arrow-right {
+    right: -170px;
+    opacity: 0.5;
+}
+
+.loaf-images:hover .loaf-image_arrow-right:hover {
+    right: -130px;
+    opacity: 0.8;
+}
+
+.loaf-images:hover .loaf-image_arrow-left:active,
+.loaf-images:hover .loaf-image_arrow-right:active {
+    opacity: 1;
+}
+
+.loaf-image_arrow-left {
+    left: -200px;
+    background-position: center top 15%;
+    transform: rotate(90deg);
+    transition: left 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.loaf-image_arrow-right {
+    right: -200px;
+    background-position: center top 15%;
+    transform: rotate(270deg);
+    transition: right 0.2s ease-out;
 }
 
 .loaf-image_arrow-down {
     position: absolute;
     left: calc(50% - 25px);
-    bottom: -25px;
+    top: -25px;
 
     width: 50px;
     height: 50px;
@@ -55,6 +126,7 @@ ul {
 }
 
 .loaf-description {
+    position: relative;
     padding: 60px 0;
 }
 
@@ -197,6 +269,37 @@ ul {
 	background-image: url(/static/icons/spoon.svg);
 }
 
+.the-verdict-section_rating {
+    position: relative;
+    width: 250px;
+    height: 50px;
+}
+
+.the-verdict-section_rating_background {
+    background: #F7862D;
+}
+
+.the-verdict-section_rating_background,
+.the-verdict-section_rating_stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.the-verdict-section_rating_stars {
+    width: 100%;
+
+    background-image: url(/static/icons/star.svg);
+    background-size: 50px;
+    background-repeat: repeat-x;
+    background-position: left top;
+}
+
+.the-verdict-section_rating--4 .the-verdict-section_rating_background {
+    width: 80%;
+}
+
 .timeline {
 	padding: 10px 0;
 }
@@ -254,6 +357,22 @@ ul {
     background-position: center left;
 }
 
+.i-honeycomb {
+	background-image: url(/static/icons/honeycomb.svg);
+}
+
+.i-rocks {
+	background-image: url(/static/icons/falling-rocks.svg);
+}
+
+.i-candy {
+	background-image: url(/static/icons/toffee.svg);
+}
+
+.i-lemon {
+	background-image: url(/static/icons/lemon.svg);
+}
+
 .i-clock {
 	background-image: url(/static/icons/clock.svg);
 }
@@ -268,4 +387,95 @@ ul {
 
 .timeline-action--cold .i-thermometer {
 	background-image: url(/static/icons/thermometer-cold.svg);
+}
+
+.i-toaster {
+    background-image: url(/static/icons/toaster.svg);
+}
+
+.the-verdict-breakdown {
+	margin-top: 30px;
+}
+
+.breakdown-category {
+    display: flex;
+    align-items: center;
+}
+
+.breakdown-category_icon {
+	flex: none;
+	width: 40px;
+	height: 30px;
+
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: center left;
+}
+
+.breakdown-category_name {
+    flex: none;
+    width: 100px;
+}
+
+.breakdown-category_slider {
+	width: 500px;
+	height: 60px;
+	margin-left: 60px;
+}
+
+.breakdown-category_slider_labels {
+	display: flex;
+
+	justify-content: space-between;
+	align-items: flex-end;
+
+    font-size: 12px;
+    color: #999;
+}
+
+.breakdown-category_slider_label {
+    text-align: center;
+}
+
+.breakdown-category_slider_label:first-child {
+	transform: translateX(-50%);
+}
+
+.breakdown-category_slider_label:last-child {
+	transform: translateX(50%);
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+	width: 100%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2px;
+    background: #999;
+    border: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+	margin-top: 2px;
+	margin-left: -15px;
+
+    background: url(/static/icons/up-arrow.svg);
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #333;
 }
