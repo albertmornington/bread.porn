@@ -399,7 +399,6 @@ ul {
 
 .breakdown-category {
     display: flex;
-    align-items: center;
 }
 
 .breakdown-category_icon {
@@ -415,11 +414,12 @@ ul {
 .breakdown-category_name {
     flex: none;
     width: 100px;
+    margin-top: 6px;
 }
 
 .breakdown-category_slider {
 	width: 500px;
-	height: 60px;
+	height: 65px;
 	margin-left: 60px;
 }
 
@@ -435,6 +435,8 @@ ul {
 
 .breakdown-category_slider_label {
     text-align: center;
+    width: 100px;
+    height: 30px;
 }
 
 .breakdown-category_slider_label:first-child {
@@ -460,13 +462,11 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: none;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-	margin-top: 2px;
-	margin-left: -15px;
+    height: 25px;
+    width: 25px;
+    margin-top: -20px;
 
-    background: url(/static/icons/up-arrow.svg);
+    background-image: url(/static/icons/down-chevron.svg);
     background-size: 25px;
     background-repeat: no-repeat;
     background-position: center center;
