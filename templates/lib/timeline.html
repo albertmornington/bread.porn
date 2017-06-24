@@ -1,0 +1,111 @@
+{% macro render_timeline_section(timeline) -%}
+    <div class="content-section">
+        <div class="content-section_icon-container">
+            <img class="content-section_icon" src="{{ url_for('static', filename='icons/time.svg') }}">
+        </div>
+        <div class="content-section_description timeline-section">
+            <h3 class="content-section_description_title">Timeline</h3>
+            <ul class="timeline">
+                <li class="timeline-action">
+                    <div class="timeline-action-details">
+                        <div class="timeline-action-detail timeline-action-detail--duration">
+                            <div class="i-clock"></div>
+                            <span>1 hr</span>
+                        </div>
+                        <div class="timeline-action-detail timeline-action-detail--temperature">
+                            <div class="i-thermometer"></div>
+                            <span>room</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-action-description">
+                        <h4 class="timeline-action-description_name">Mix</h4>
+                        <p class="timeline-action-description_notes">
+                            Mixed everything together and let the dough rest in the bowl.
+                        </p>
+                    </div>
+                </li>
+
+                <li class="timeline-action timeline-action--cold">
+                    <div class="timeline-action-details">
+                        <div class="timeline-action-detail timeline-action-detail--duration">
+                            <div class="i-clock"></div>
+                            <span>14 hr</span>
+                        </div>
+                        <div class="timeline-action-detail timeline-action-detail--temperature">
+                            <div class="i-thermometer"></div>
+                            <span>50°F</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-action-description">
+                        <h4 class="timeline-action-description_name">Knead</h4>
+                        <p class="timeline-action-description_notes">
+                            Kneaded the dough for 5 minutes and put it outside on the terrace to rest for 14 hours.
+                        </p>
+                    </div>
+                </li>
+
+                <li class="timeline-action">
+                    <div class="timeline-action-details">
+                        <div class="timeline-action-detail timeline-action-detail--duration">
+                            <div class="i-clock"></div>
+                            <span>1 hr</span>
+                        </div>
+                        <div class="timeline-action-detail timeline-action-detail--temperature">
+                            <div class="i-thermometer"></div>
+                            <span>room</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-action-description">
+                        <h4 class="timeline-action-description_name">Knead</h4>
+                        <p class="timeline-action-description_notes">
+                            A quick 3-minute knead.
+                        </p>
+                    </div>
+                </li>
+
+                <li class="timeline-action">
+                    <div class="timeline-action-details">
+                        <div class="timeline-action-detail timeline-action-detail--duration">
+                            <div class="i-clock"></div>
+                            <span>10 min</span>
+                        </div>
+                        <div class="timeline-action-detail timeline-action-detail--temperature">
+                            <div class="i-thermometer"></div>
+                            <span>room</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-action-description">
+                        <h4 class="timeline-action-description_name">Shape dough</h4>
+                        <p class="timeline-action-description_notes">
+                            Molded the dough into a baguette shape and made 4 diagonal cuts with a razor blade.
+                        </p>
+                    </div>
+                </li>
+                <li class="timeline-action timeline-action--hot">
+                    <div class="timeline-action-details">
+                        <div class="timeline-action-detail timeline-action-detail--duration">
+                            <div class="i-clock"></div>
+                            <span>30 min</span>
+                        </div>
+                        <div class="timeline-action-detail timeline-action-detail--temperature">
+                            <div class="i-thermometer"></div>
+                            <span>500°F</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-action-description">
+                        <h4 class="timeline-action-description_name">Bake</h4>
+                        <p class="timeline-action-description_notes">
+                            When the oven was ready, poured 3 cups of boiling water into a pan at the bottom of the oven to generate steam. Afterwards immediately slid the bread inside.
+                        </p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+{%- endmacro %}

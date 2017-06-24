@@ -1,0 +1,62 @@
+{% macro render_ingredients_section(ingredients) -%}
+    <div class="content-section">
+        <div class="content-section_icon-container">
+            <img class="content-section_icon" src="{{ url_for('static', filename='icons/wheat-flour.svg') }}">
+        </div>
+        <div class="content-section_description ingredient-section">
+            <h3 class="content-section_description_title">Ingredients</h3>
+            <ul class="ingredient-list">
+                <li class="ingredient">
+                    <div class="ingredient_icon ingredient_icon--flour"></div>
+                    <div class="ingredient_name">
+                        Strong white flour
+                    </div>
+                    <div class="ingredient_amount">
+                        <div class="ingredient_amount_text">3 cups</div>
+                        <div class="ingredient_amount_pictogram cups cups-3"></div>
+                    </div>
+                </li>
+                <li class="ingredient">
+                    <div class="ingredient_icon ingredient_icon--water"></div>
+                    <div class="ingredient_name">
+                        Water
+                    </div>
+                    <div class="ingredient_amount">
+                        <div class="ingredient_amount_text">1 cup</div>
+                        <div class="ingredient_amount_pictogram cups cups-1"></div>
+                    </div>
+                </li>
+                <li class="ingredient">
+                    <div class="ingredient_icon ingredient_icon--yeast"></div>
+                    <div class="ingredient_name">
+                        Yeast
+                    </div>
+                    <div class="ingredient_amount">
+                        <div class="ingredient_amount_text">&frac14; cup</div>
+                        <div class="ingredient_amount_pictogram cups cups-1"></div>
+                    </div>
+                </li>
+                <li class="ingredient">
+                    <div class="ingredient_icon ingredient_icon--nuts"></div>
+                    <div class="ingredient_name">
+                        Walnuts
+                    </div>
+                    <div class="ingredient_amount">
+                        <div class="ingredient_amount_text">1 cup</div>
+                        <div class="ingredient_amount_pictogram cups cups-1"></div>
+                    </div>
+                </li>
+                <li class="ingredient">
+                    <div class="ingredient_icon ingredient_icon--salt"></div>
+                    <div class="ingredient_name">
+                        Salt
+                    </div>
+                    <div class="ingredient_amount">
+                        <div class="ingredient_amount_text">1 tsp</div>
+                        <div class="ingredient_amount_pictogram tsp tsp-1"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+{%- endmacro %}

@@ -1,7 +1,11 @@
+{% from 'lib/verdict.html' import render_verdict_section %}
+{% from 'lib/ingredients.html' import render_ingredients_section %}
+{% from 'lib/timeline.html' import render_timeline_section %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Loaf 0 - bread.porn</title>
+        <title>{{ loaf.name }} by {{ loaf.baker.name }} - bread.porn</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='loaf.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ubuntu.css') }}">
         <script type="text/javascript" src="{{ url_for('static', filename='js/smooth-scroll.min.js') }}"></script>
@@ -37,272 +41,18 @@
                     baked by <img class="loaf-baker_icon" src="{{ url_for('static', filename='icons/chef.svg') }}">Mathieu
                 </h2>
 
-                <div class="content-section">
-                    <div class="content-section_icon-container">
-                        <img class="content-section_icon" src="{{ url_for('static', filename='icons/dog.svg') }}">
-                    </div>
-                    <div class="content-section_description the-verdict-section">
-						<h3 class="content-section_description_title">The Verdict</h3>
-                        <div class="the-verdict-section_rating the-verdict-section_rating--4">
-                            <div class="the-verdict-section_rating_background"></div>
-                            <div class="the-verdict-section_rating_stars"></div>
-                        </div>
-                        <ul class="the-verdict-breakdown">
-                            <li class="breakdown-category breakdown-category--sweetness">
-                                <div class="breakdown-category_icon i-candy"></div>
-                                <div class="breakdown-category_name">
-                                    Sweetness
-                                </div>
-                                <div class="breakdown-category_slider">
-                                    <input type="range" min="0" max="4" steps="1" value="1">
-                                    <ul class="breakdown-category_slider_labels">
-                                        <li class="breakdown-category_slider_label">Bitter</li>
-                                        <li class="breakdown-category_slider_label">Hits the<br>sweet spot</li>
-                                        <li class="breakdown-category_slider_label">Cloying</li>
-                                    </ul>
-                                </div>
-                            </li>
+                {{ render_verdict_section(loaf.verdict) }}
 
-                            <li class="breakdown-category breakdown-category--sweetness">
-                                <div class="breakdown-category_icon i-lemon"></div>
-                                <div class="breakdown-category_name">
-                                    Sourness
-                                </div>
-                                <div class="breakdown-category_slider">
-                                    <input type="range" min="0" max="4" steps="1" value="2">
-                                    <ul class="breakdown-category_slider_labels">
-                                        <li class="breakdown-category_slider_label">Bland</li>
-                                        <li class="breakdown-category_slider_label">Perfect</li>
-                                        <li class="breakdown-category_slider_label">Too sour</li>
-                                    </ul>
-                                </div>
-                            </li>
+                {{ render_ingredients_section(loaf.ingredients) }}
 
-                            <li class="breakdown-category breakdown-category--crust">
-                                <div class="breakdown-category_icon i-rocks"></div>
-                                <div class="breakdown-category_name">
-                                    Crust
-                                </div>
-                                <div class="breakdown-category_slider">
-                                    <input type="range" min="0" max="4" steps="1" value="1">
-                                    <ul class="breakdown-category_slider_labels">
-                                        <li class="breakdown-category_slider_label">Soft</li>
-                                        <li class="breakdown-category_slider_label">Crunchy<br>goodness</li>
-                                        <li class="breakdown-category_slider_label">Too hard</li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li class="breakdown-category breakdown-category--texture">
-                                <div class="breakdown-category_icon i-honeycomb"></div>
-                                <div class="breakdown-category_name">
-                                    Texture
-                                </div>
-                                <div class="breakdown-category_slider">
-                                    <input type="range" min="0" max="4" steps="1" value="2">
-                                    <ul class="breakdown-category_slider_labels">
-                                        <li class="breakdown-category_slider_label">Too gauzy</li>
-                                        <li class="breakdown-category_slider_label">Spongy<br>perfection</li>
-                                        <li class="breakdown-category_slider_label">Too dense</li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li class="breakdown-category breakdown-category--toasting">
-                                <div class="breakdown-category_icon i-toaster"></div>
-                                <div class="breakdown-category_name">
-                                    Toasting
-                                </div>
-                                <div class="breakdown-category_slider">
-                                    <input type="range" min="0" max="4" steps="1" value="2">
-                                    <ul class="breakdown-category_slider_labels">
-                                        <li class="breakdown-category_slider_label">Uncooked</li>
-                                        <li class="breakdown-category_slider_label">Golden<br>perfection</li>
-                                        <li class="breakdown-category_slider_label">Overcooked</li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="content-section">
-                    <div class="content-section_icon-container">
-                        <img class="content-section_icon" src="{{ url_for('static', filename='icons/wheat-flour.svg') }}">
-                    </div>
-                    <div class="content-section_description ingredient-section">
-						<h3 class="content-section_description_title">Ingredients</h3>
-						<ul class="ingredient-list">
-							<li class="ingredient">
-								<div class="ingredient_icon ingredient_icon--flour"></div>
-								<div class="ingredient_name">
-									Strong white flour
-								</div>
-								<div class="ingredient_amount">
-									<div class="ingredient_amount_text">3 cups</div>
-									<div class="ingredient_amount_pictogram cups cups-3"></div>
-								</div>
-							</li>
-							<li class="ingredient">
-								<div class="ingredient_icon ingredient_icon--water"></div>
-								<div class="ingredient_name">
-									Water
-								</div>
-								<div class="ingredient_amount">
-									<div class="ingredient_amount_text">1 cup</div>
-									<div class="ingredient_amount_pictogram cups cups-1"></div>
-								</div>
-							</li>
-							<li class="ingredient">
-								<div class="ingredient_icon ingredient_icon--yeast"></div>
-								<div class="ingredient_name">
-									Yeast
-								</div>
-								<div class="ingredient_amount">
-									<div class="ingredient_amount_text">&frac14; cup</div>
-									<div class="ingredient_amount_pictogram cups cups-1"></div>
-								</div>
-							</li>
-							<li class="ingredient">
-								<div class="ingredient_icon ingredient_icon--nuts"></div>
-								<div class="ingredient_name">
-									Walnuts
-								</div>
-								<div class="ingredient_amount">
-									<div class="ingredient_amount_text">1 cup</div>
-									<div class="ingredient_amount_pictogram cups cups-1"></div>
-								</div>
-							</li>
-							<li class="ingredient">
-								<div class="ingredient_icon ingredient_icon--salt"></div>
-								<div class="ingredient_name">
-									Salt
-								</div>
-								<div class="ingredient_amount">
-									<div class="ingredient_amount_text">1 tsp</div>
-									<div class="ingredient_amount_pictogram tsp tsp-1"></div>
-								</div>
-							</li>
-						</ul>
-                    </div>
-                </div>
-
-                <div class="content-section">
-                    <div class="content-section_icon-container">
-                        <img class="content-section_icon" src="{{ url_for('static', filename='icons/time.svg') }}">
-                    </div>
-                    <div class="content-section_description timeline-section">
-						<h3 class="content-section_description_title">Timeline</h3>
-						<ul class="timeline">
-							<li class="timeline-action">
-								<div class="timeline-action-details">
-									<div class="timeline-action-detail timeline-action-detail--duration">
-										<div class="i-clock"></div>
-										<span>1 hr</span>
-									</div>
-									<div class="timeline-action-detail timeline-action-detail--temperature">
-										<div class="i-thermometer"></div>
-										<span>room</span>
-									</div>
-								</div>
-
-								<div class="timeline-action-description">
-									<h4 class="timeline-action-description_name">Mix</h4>
-									<p class="timeline-action-description_notes">
-										Mixed everything together and let the dough rest in the bowl.
-									</p>
-								</div>
-							</li>
-
-							<li class="timeline-action timeline-action--cold">
-								<div class="timeline-action-details">
-									<div class="timeline-action-detail timeline-action-detail--duration">
-										<div class="i-clock"></div>
-										<span>14 hr</span>
-									</div>
-									<div class="timeline-action-detail timeline-action-detail--temperature">
-										<div class="i-thermometer"></div>
-										<span>50°F</span>
-									</div>
-								</div>
-
-								<div class="timeline-action-description">
-									<h4 class="timeline-action-description_name">Knead</h4>
-									<p class="timeline-action-description_notes">
-										Kneaded the dough for 5 minutes and put it outside on the terrace to rest for 14 hours.
-									</p>
-								</div>
-							</li>
-
-							<li class="timeline-action">
-								<div class="timeline-action-details">
-									<div class="timeline-action-detail timeline-action-detail--duration">
-										<div class="i-clock"></div>
-										<span>1 hr</span>
-									</div>
-									<div class="timeline-action-detail timeline-action-detail--temperature">
-										<div class="i-thermometer"></div>
-										<span>room</span>
-									</div>
-								</div>
-
-								<div class="timeline-action-description">
-									<h4 class="timeline-action-description_name">Knead</h4>
-									<p class="timeline-action-description_notes">
-										A quick 3-minute knead.
-									</p>
-								</div>
-							</li>
-
-							<li class="timeline-action">
-								<div class="timeline-action-details">
-									<div class="timeline-action-detail timeline-action-detail--duration">
-										<div class="i-clock"></div>
-										<span>10 min</span>
-									</div>
-									<div class="timeline-action-detail timeline-action-detail--temperature">
-										<div class="i-thermometer"></div>
-										<span>room</span>
-									</div>
-								</div>
-
-								<div class="timeline-action-description">
-									<h4 class="timeline-action-description_name">Shape dough</h4>
-									<p class="timeline-action-description_notes">
-										Molded the dough into a baguette shape and made 4 diagonal cuts with a razor blade.
-									</p>
-								</div>
-							</li>
-							<li class="timeline-action timeline-action--hot">
-								<div class="timeline-action-details">
-									<div class="timeline-action-detail timeline-action-detail--duration">
-										<div class="i-clock"></div>
-										<span>30 min</span>
-									</div>
-									<div class="timeline-action-detail timeline-action-detail--temperature">
-										<div class="i-thermometer"></div>
-										<span>500°F</span>
-									</div>
-								</div>
-
-								<div class="timeline-action-description">
-									<h4 class="timeline-action-description_name">Bake</h4>
-									<p class="timeline-action-description_notes">
-										When the oven was ready, poured 3 cups of boiling water into a pan at the bottom of the oven to generate steam. Afterwards immediately slid the bread inside.
-									</p>
-								</div>
-							</li>
-
-						</ul>
-                    </div>
-                </div>
+                {{ render_timeline_section(loaf.timeline) }}
             </div>
         </div>
 
-        <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <div class="footer">
+            Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+        </div>
 
-        <div>{{ loaf }}</div>
-        <div>{{ loaf_test }}</div>
         <script>smoothScroll.init();</script>
     </body>
 </html>

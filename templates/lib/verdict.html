@@ -1,0 +1,67 @@
+{% macro render_verdict_section(verdict) -%}
+    <div class="content-section">
+        <div class="content-section_icon-container">
+            <img class="content-section_icon" src="{{ url_for('static', filename='icons/dog.svg') }}">
+        </div>
+        <div class="content-section_description the-verdict-section">
+            <h3 class="content-section_description_title">The Verdict</h3>
+            <div class="the-verdict-section_rating the-verdict-section_rating--{{ verdict.rating }}">
+                <div class="the-verdict-section_rating_background"></div>
+                <div class="the-verdict-section_rating_stars"></div>
+            </div>
+            <ul class="the-verdict-breakdown">
+                {{ render_sweetness(verdict.sweetness) }}
+
+                {{ render_sourness(verdict.sourness) }}
+
+                {{ render_crust(verdict.crust) }}
+
+                {{ render_texture(verdict.texture) }}
+
+                {{ render_toasting(verdict.toasting) }}
+            </ul>
+        </div>
+    </div>
+{%- endmacro %}
+
+{% macro render_sweetness(value) -%}
+    {% set labels = ('Bitter', 'Hits the<br>sweet spot', 'Cloying') %}
+    {{ render_verdict_category('Sweetness', 'candy', labels, value) }}
+{%- endmacro %}
+
+{% macro render_sourness(value) -%}
+    {% set labels = ('Bland', 'Perfect', 'Too sour') %}
+    {{ render_verdict_category('Sourness', 'lemon', labels, value) }}
+{%- endmacro %}
+
+{% macro render_crust(value) -%}
+    {% set labels = ('Soft', 'Crunchy<br>goodness', 'Too hard') %}
+    {{ render_verdict_category('Crust', 'rocks', labels, value) }}
+{%- endmacro %}
+
+{% macro render_texture(value) -%}
+    {% set labels = ('Too gauzy', 'Spongy<br>perfection', 'Too dense') %}
+    {{ render_verdict_category('Texture', 'honeycomb', labels, value) }}
+{%- endmacro %}
+
+{% macro render_toasting(value) -%}
+    {% set labels = ('Uncooked', 'Golden<br>perfection', 'Overcooked') %}
+    {{ render_verdict_category('Toasting', 'toaster', labels, value) }}
+{%- endmacro %}
+
+{% macro render_verdict_category(category_title, icon_name, labels, value) -%}
+    <li class="breakdown-category">
+        <div class="breakdown-category_icon i-{{ icon_name }}"></div>
+        <div class="breakdown-category_name">
+            {{ category_title }}
+        </div>
+        <div class="breakdown-category_slider">
+            <input type="range" min="0" max="4" steps="1" value="{{ value }}">
+            <ul class="breakdown-category_slider_labels">
+                {% for label in labels %}
+                    <li class="breakdown-category_slider_label">{{ label|safe }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </li>
+{%- endmacro %}
