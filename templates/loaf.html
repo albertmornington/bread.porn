@@ -16,9 +16,10 @@
     </head>
     <body>
         <div class="loaf-images">
-            <div class="loaf-image" style="background-image: url({{ url_for('static', filename='images/loaf0_0.jpg') }});"></div>
-            <div class="loaf-image u-hidden" style="background-image: url({{ url_for('static', filename='images/loaf0_1.jpg') }});"></div>
-            <div class="loaf-image u-hidden" style="background-image: url({{ url_for('static', filename='images/loaf0_2.jpg') }});"></div>
+			{% for image in images %}
+				{% set extra_class = 'u-hidden' if loop.index0 > 0 else '' %}
+            	<div class="loaf-image {{ extra_class }}" style="background-image: url({{ url_for('static', filename=image) }});"></div>
+			{% endfor %}
 
             <div class="logo">
                 bread<br>porn

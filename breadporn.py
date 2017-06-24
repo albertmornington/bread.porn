@@ -1,5 +1,7 @@
+import os
 import redis
 import simplejson
+
 from flask import abort
 from flask import Flask
 from flask import render_template
@@ -14,8 +16,14 @@ def loaf(loaf_alias):
     return render_template(
         'loaf.html',
         loaf=loaf_from_alias(r, loaf_alias),
-        loaf_test='test test',
+	images=_list_image_paths(loaf_alias)
     )
+
+def _list_image_paths(loaf_alias):
+    return [
+        'images/{}/{}'.format(loaf_alias, file)
+        for file in os.listdir('static/images/{}'.format(loaf_alias))
+    ]
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0')
