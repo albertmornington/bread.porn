@@ -35,10 +35,10 @@
             <div class="content-container">
                 <h1 id="loaf-name" class="loaf-name u-text-center">
                     <img class="loaf-name_icon" src="{{ url_for('static', filename='icons/baguettes.svg') }}">
-                    Walnut Baguette
+                    {{ loaf.name }}
                 </h1>
                 <h2 class="loaf-baker u-text-center">
-                    baked by <img class="loaf-baker_icon" src="{{ url_for('static', filename='icons/chef.svg') }}">Mathieu
+                    baked by <img class="loaf-baker_icon" src="{{ url_for('static', filename='icons/chef.svg') }}">{{ loaf.baker.name }}
                 </h2>
 
                 {{ render_verdict_section(loaf.verdict) }}

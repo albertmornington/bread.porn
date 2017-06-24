@@ -18,4 +18,24 @@ def action_from_id(r, i):
     if not r.exists(action_key):
         return None
     
-    return fields_as_dict(r, action_key, ACTION_FIELDS)
+    action = fields_as_dict(r, action_key, ACTION_FIELDS)
+    action['temperature_category'] = temperature_category(action['temperature'])
+    return action
+
+def temperature_category(raw):
+    if raw == 'room':
+        return 'room'
+
+    if raw[-1] == 'F':
+        parsed = (float(raw[:-1]) - 32) * (5./9)
+
+    elif raw[-1] == 'C':
+        parsed = float(raw[:-1])
+
+    if parsed > 50:
+        return 'hot'
+
+    if parsed < 15:
+        return 'cold'
+
+    return 'room'
