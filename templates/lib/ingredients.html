@@ -1,3 +1,5 @@
+{% set INGREDIENT_TYPE_TO_ICON = {'grain': 'flour', 'liquid': 'water', 'powder': 'yeast', 'nuts': 'nuts', 'salt': 'salt'} %}
+
 {% macro render_ingredients_section(ingredients) -%}
     <div class="content-section">
         <div class="content-section_icon-container">
@@ -5,58 +7,27 @@
         </div>
         <div class="content-section_description ingredient-section">
             <h3 class="content-section_description_title">Ingredients</h3>
+
             <ul class="ingredient-list">
-                <li class="ingredient">
-                    <div class="ingredient_icon ingredient_icon--flour"></div>
-                    <div class="ingredient_name">
-                        Strong white flour
-                    </div>
-                    <div class="ingredient_amount">
-                        <div class="ingredient_amount_text">3 cups</div>
-                        <div class="ingredient_amount_pictogram cups cups-3"></div>
-                    </div>
-                </li>
-                <li class="ingredient">
-                    <div class="ingredient_icon ingredient_icon--water"></div>
-                    <div class="ingredient_name">
-                        Water
-                    </div>
-                    <div class="ingredient_amount">
-                        <div class="ingredient_amount_text">1 cup</div>
-                        <div class="ingredient_amount_pictogram cups cups-1"></div>
-                    </div>
-                </li>
-                <li class="ingredient">
-                    <div class="ingredient_icon ingredient_icon--yeast"></div>
-                    <div class="ingredient_name">
-                        Yeast
-                    </div>
-                    <div class="ingredient_amount">
-                        <div class="ingredient_amount_text">&frac14; cup</div>
-                        <div class="ingredient_amount_pictogram cups cups-1"></div>
-                    </div>
-                </li>
-                <li class="ingredient">
-                    <div class="ingredient_icon ingredient_icon--nuts"></div>
-                    <div class="ingredient_name">
-                        Walnuts
-                    </div>
-                    <div class="ingredient_amount">
-                        <div class="ingredient_amount_text">1 cup</div>
-                        <div class="ingredient_amount_pictogram cups cups-1"></div>
-                    </div>
-                </li>
-                <li class="ingredient">
-                    <div class="ingredient_icon ingredient_icon--salt"></div>
-                    <div class="ingredient_name">
-                        Salt
-                    </div>
-                    <div class="ingredient_amount">
-                        <div class="ingredient_amount_text">1 tsp</div>
-                        <div class="ingredient_amount_pictogram tsp tsp-1"></div>
-                    </div>
-                </li>
+                {% for ingredient in ingredients %}
+                    {{ render_ingredient(ingredient) }}
+                {% endfor %}
             </ul>
+
         </div>
     </div>
+{%- endmacro %}
+
+{% macro render_ingredient(ingredient) -%}
+    <li class="ingredient">
+        {% set icon = INGREDIENT_TYPE_TO_ICON[ingredient.type] %}
+        <div class="ingredient_icon ingredient_icon--{{ icon }}"></div>
+        <div class="ingredient_name">
+            {{ ingredient.name.title() }}
+        </div>
+        <div class="ingredient_amount">
+            <div class="ingredient_amount_text">{{ ingredient.amount }} {{ ingredient.unit }}</div>
+            <div class="ingredient_amount_pictogram {{ ingredient.unit }} {{ ingredient.unit }}-{{ ingredient.amount }}"></div>
+        </div>
+    </li>
 {%- endmacro %}

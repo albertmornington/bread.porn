@@ -246,21 +246,21 @@ ul {
     background-position: center left;
 }
 
-.cups {
+.cup {
 	background-image: url(/static/icons/glass.svg);
 }
 
-.cups-1,
+.cup-1,
 .tsp-1 {
 	width: 20px;
 }
 
-.cups-2,
+.cup-2,
 .tsp-2 {
 	width: 40px;
 }
 
-.cups-3,
+.cup-3,
 .tsp-3 {
 	width: 60px;
 }
